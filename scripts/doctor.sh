@@ -51,6 +51,16 @@ else
   report "bash" "MISSING" "This script expects bash; try running it with 'bash scripts/doctor.sh'."
 fi
 
+key="missions/03-ssh/knock knock"
+
+if [ -f "$key" ]; then
+    perms=$(stat -f "%Lp" "$key" 2>/dev/null || stat -c "%a" "$key" 2>/dev/null)
+
+    if [ "$perms" != "600" ] && [ "$perms" != "400" ]; then
+        echo "ssh private key permissions are $perms; try: chmod 600 \"$key\""
+    fi
+fi
+
 echo
 echo "This is a diagnostic, not an installer. Fix what's MISSING using"
 echo "whatever method you'd normally use on your own machine."

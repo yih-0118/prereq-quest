@@ -30,6 +30,6 @@ RUN curl -fsSL -o /tmp/janet-src.tar.gz \
 
 WORKDIR /quest
 
-COPY app/main.janet /app/main.janet
+COPY app/main.janet ./main.janet
 
-CMD ["janet", "main.janet"]
+CMD ["janet", "main.janet" , "world"]

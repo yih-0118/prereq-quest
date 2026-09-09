@@ -11,7 +11,7 @@
 (defn base-value
   "Starting point used to compute the answer."
   []
-  40)
+  41)
 
 (defn the-answer
   "The answer to life, the universe, and everything."
